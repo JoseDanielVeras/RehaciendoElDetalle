@@ -1,67 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
-using OtroRegistroCompleto.DAL;
-using OtroRegistroCompleto.Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
+using RehaciendoElDetalle.Entidades;
+using RehaciendoElDetalle.DAL;
+using System.Linq;
+using System.Linq.Expressions;
 
-namespace OtroRegistroCompleto.BLL
+namespace RehaciendoElDetalle.BLL
 {
-    class RolesBLL
+    public class RolesBLL
     {
-        public static bool Guardar(Roles roles, string descripcion)
-        {
-            bool paso = false;
-            Contexto contexto = new Contexto();
-
-            try
-            {
-                if (Existe(descripcion))
-                    return paso;
-                if (contexto.Roles.Add(roles) != null)
-                    paso = contexto.SaveChanges() > 0;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return paso;
-        }
-
-        public static bool Modificar(Roles roles)
-        {
-            bool paso = false;
-            Contexto contexto = new Contexto();
-
-            try
-            {
-                contexto.Database.ExecuteSqlRaw($"Delete FROM OrdenesDetalle Where RolId = {roles.RolId}");
-                foreach (var anterior in roles.RolesDetalle)
-                {
-                    contexto.Entry(anterior).State = EntityState.Added;
-                }
-                contexto.Entry(roles).State = EntityState.Modified;
-                paso = (contexto.SaveChanges() > 0);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return paso;
-        }
-
         public static bool Existe(string descripcion)
         {
             bool encontrado = false;
@@ -82,6 +31,66 @@ namespace OtroRegistroCompleto.BLL
             }
 
             return encontrado;
+        }
+
+        private static bool Insertar(Roles roles)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                contexto.Roles.Add(roles);
+                paso = contexto.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return paso;
+        }
+
+        public static bool Guardar(Roles roles)
+        {
+            if (!Existe(roles.Descripcion))
+                return Insertar(roles);
+            else
+                return Modificar(roles);
+        }
+
+        private static bool Modificar(Roles roles)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                contexto.Database.ExecuteSqlRaw($"DELETE FROM RolesDetalle Where RolId = {roles.RolId}");
+                foreach (var anterior in roles.RolesDetalle)
+                {
+                    contexto.Entry(anterior).State = EntityState.Added;
+                }
+                contexto.Entry(roles).State = EntityState.Modified;
+                paso = (contexto.SaveChanges() > 0);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return paso;
+
         }
 
         public static bool Eliminar(int id)
@@ -133,18 +142,21 @@ namespace OtroRegistroCompleto.BLL
         {
             List<Roles> lista = new List<Roles>();
             Contexto contexto = new Contexto();
+            
             try
             {
                 lista = contexto.Roles.Where(criterio).ToList();
             }
             catch (Exception)
             {
+
                 throw;
             }
             finally
             {
                 contexto.Dispose();
             }
+
             return lista;
         }
 
@@ -166,6 +178,7 @@ namespace OtroRegistroCompleto.BLL
             {
                 contexto.Dispose();
             }
+
             return lista;
         }
     }

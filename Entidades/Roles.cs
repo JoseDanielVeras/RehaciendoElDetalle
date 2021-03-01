@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
 
-namespace OtroRegistroCompleto.Entidades
+namespace RehaciendoElDetalle.Entidades
 {
     public class Roles
     {
@@ -17,7 +17,6 @@ namespace OtroRegistroCompleto.Entidades
         {
             RolId = 0;
             FechaCreacion = DateTime.Now;
-
             RolesDetalle = new List<RolesDetalle>();
         }
 

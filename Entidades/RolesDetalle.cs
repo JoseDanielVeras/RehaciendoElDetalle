@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace OtroRegistroCompleto.Entidades
+namespace RehaciendoElDetalle.Entidades
 {
     public class RolesDetalle
     {
@@ -23,9 +21,9 @@ namespace OtroRegistroCompleto.Entidades
             EsAsignado = true;
         }
 
-        public RolesDetalle(int rolId, int permisoId, bool esAsignado)
+        public RolesDetalle(int id, int rolId, int permisoId, bool esAsignado)
         {
-            RolDetalleId = 0;
+            RolDetalleId = id;
             RolId = rolId;
             PermisoId = permisoId;
             EsAsignado = esAsignado;

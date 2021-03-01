@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="microsoft.entityFrameworkCore.SQLITE" Version="5.0.2" />
-    <PackageReference Include="microsoft.entityFrameworkCore.tools" Version="5.0.2">
+    <PackageReference Include="microsoft.EntityFrameWorkCore.SQLITE" Version="5.0.3" />
+    <PackageReference Include="microsoft.EntityFrameWorkCore.Tools" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="GestionUsuarios.Db">
+    <None Update="GestionRoles.Db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

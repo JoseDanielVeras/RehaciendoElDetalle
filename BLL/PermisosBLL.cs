@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
-using OtroRegistroCompleto.DAL;
-using OtroRegistroCompleto.Entidades;
+using RehaciendoElDetalle.Entidades;
+using RehaciendoElDetalle.DAL;
+using System.Linq;
+using System.Linq.Expressions;
 
-namespace OtroRegistroCompleto.BLL
+namespace RehaciendoElDetalle.BLL
 {
-    class PermisosBLL
+    public class PermisosBLL
     {
-        public static bool ExistePermiso(string descripcion)
+        public static bool Existe(string descripcion)
         {
             bool encontrado = false;
             Contexto contexto = new Contexto();
@@ -31,6 +31,29 @@ namespace OtroRegistroCompleto.BLL
             }
 
             return encontrado;
+        }
+
+        private static bool Modificar(Permisos permisos)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                contexto.Entry(permisos).State = EntityState.Modified;
+                paso = contexto.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return paso;
         }
 
         private static bool Insertar(Permisos permisos)
@@ -55,57 +78,19 @@ namespace OtroRegistroCompleto.BLL
             return paso;
         }
 
-        public static bool Modificar(Permisos permisos)
+        public static bool Guardar(Permisos permisos)
         {
-            bool paso = false;
-            Contexto contexto = new Contexto();
-
-            try
-            {
-                contexto.Entry(permisos).State = EntityState.Modified;
-                paso = contexto.SaveChanges() > 0;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return paso;
-        }
-
-        public static bool Guardar(Permisos permisos, string descripcion)
-        {
-            bool paso = false;
-            Contexto contexto = new Contexto();
-
-            try
-            {
-                if (ExistePermiso(descripcion))
-                    return paso;
-                if (contexto.Permisos.Add(permisos) != null)
-                    paso = contexto.SaveChanges() > 0;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return paso;
+            if (!Existe(permisos.Descripcion))
+                return Insertar(permisos);
+            else
+                return Modificar(permisos);
         }
 
         public static bool Eliminar(int id)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
+
             try
             {
                 var permisos = contexto.Permisos.Find(id);
@@ -124,6 +109,7 @@ namespace OtroRegistroCompleto.BLL
             {
                 contexto.Dispose();
             }
+
             return paso;
         }
 
@@ -145,6 +131,7 @@ namespace OtroRegistroCompleto.BLL
             {
                 contexto.Dispose();
             }
+
             return permisos;
         }
 
@@ -152,18 +139,21 @@ namespace OtroRegistroCompleto.BLL
         {
             List<Permisos> lista = new List<Permisos>();
             Contexto contexto = new Contexto();
+
             try
             {
                 lista = contexto.Permisos.Where(criterio).ToList();
             }
             catch (Exception)
             {
+
                 throw;
             }
             finally
             {
                 contexto.Dispose();
             }
+
             return lista;
         }
 
@@ -185,7 +175,9 @@ namespace OtroRegistroCompleto.BLL
             {
                 contexto.Dispose();
             }
+
             return lista;
         }
+
     }
 }

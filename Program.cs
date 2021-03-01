@@ -1,11 +1,10 @@
-using OtroRegistroCompleto.IU.Registros.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OtroRegistroCompleto
+namespace RehaciendoElDetalle
 {
     static class Program
     {
@@ -18,7 +17,7 @@ namespace OtroRegistroCompleto
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainFrom()); //Eso lo que hace es que cuando se ejecute el programa la ventana MainForm se ejecute primero
+            Application.Run(new MainForm());
         }
     }
 }
