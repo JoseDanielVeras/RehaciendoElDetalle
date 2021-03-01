@@ -155,7 +155,7 @@ namespace RehaciendoElDetalle.UI
         {
             PermisoIdComboBox.DataSource = PermisosBLL.GetPermisos();
             PermisoIdComboBox.DisplayMember = "PermisoId";
-            PermisoIdComboBox.ValueMember = "PermisoId";
+            PermisoIdComboBox.ValueMember = "Descripcion";
         }
 
         

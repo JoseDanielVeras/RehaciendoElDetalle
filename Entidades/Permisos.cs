@@ -14,7 +14,7 @@ namespace RehaciendoElDetalle.Entidades
         public string Descripcion { get; set; }
         public int VecesAsignado { get; set; }
 
-        [ForeignKey("PermisoID")]
-        public virtual List<RolesDetalle> RolesDetalles { get; set; }
+        [ForeignKey("PermisoId")]
+        public virtual List<RolesDetalle> RolesDetalle { get; set; }
     }
 }

@@ -9,7 +9,7 @@ using RehaciendoElDetalle.DAL;
 namespace RehaciendoElDetalle.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210301202431_Inicial")]
+    [Migration("20210301211008_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -87,9 +87,6 @@ namespace RehaciendoElDetalle.Migrations
                     b.Property<bool>("EsAsignado")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("PermisoID")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("PermisoId")
                         .HasColumnType("INTEGER");
 
@@ -98,7 +95,7 @@ namespace RehaciendoElDetalle.Migrations
 
                     b.HasKey("RolDetalleId");
 
-                    b.HasIndex("PermisoID");
+                    b.HasIndex("PermisoId");
 
                     b.HasIndex("RolId");
 
@@ -108,8 +105,10 @@ namespace RehaciendoElDetalle.Migrations
             modelBuilder.Entity("RehaciendoElDetalle.Entidades.RolesDetalle", b =>
                 {
                     b.HasOne("RehaciendoElDetalle.Entidades.Permisos", null)
-                        .WithMany("RolesDetalles")
-                        .HasForeignKey("PermisoID");
+                        .WithMany("RolesDetalle")
+                        .HasForeignKey("PermisoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("RehaciendoElDetalle.Entidades.Roles", null)
                         .WithMany("RolesDetalle")
@@ -120,7 +119,7 @@ namespace RehaciendoElDetalle.Migrations
 
             modelBuilder.Entity("RehaciendoElDetalle.Entidades.Permisos", b =>
                 {
-                    b.Navigation("RolesDetalles");
+                    b.Navigation("RolesDetalle");
                 });
 
             modelBuilder.Entity("RehaciendoElDetalle.Entidades.Roles", b =>

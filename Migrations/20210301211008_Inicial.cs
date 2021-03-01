@@ -44,18 +44,17 @@ namespace RehaciendoElDetalle.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     RolId = table.Column<int>(type: "INTEGER", nullable: false),
                     PermisoId = table.Column<int>(type: "INTEGER", nullable: false),
-                    EsAsignado = table.Column<bool>(type: "INTEGER", nullable: false),
-                    PermisoID = table.Column<int>(type: "INTEGER", nullable: true)
+                    EsAsignado = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RolesDetalles", x => x.RolDetalleId);
                     table.ForeignKey(
-                        name: "FK_RolesDetalles_Permisos_PermisoID",
-                        column: x => x.PermisoID,
+                        name: "FK_RolesDetalles_Permisos_PermisoId",
+                        column: x => x.PermisoId,
                         principalTable: "Permisos",
                         principalColumn: "PermisoId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_RolesDetalles_Roles_RolId",
                         column: x => x.RolId,
@@ -80,9 +79,9 @@ namespace RehaciendoElDetalle.Migrations
                 values: new object[] { 3, "Diseñador", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_RolesDetalles_PermisoID",
+                name: "IX_RolesDetalles_PermisoId",
                 table: "RolesDetalles",
-                column: "PermisoID");
+                column: "PermisoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RolesDetalles_RolId",
