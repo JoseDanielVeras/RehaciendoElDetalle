@@ -212,6 +212,8 @@ namespace RehaciendoElDetalle.UI
             // ActivoCheckBox
             // 
             this.ActivoCheckBox.AutoSize = true;
+            this.ActivoCheckBox.Checked = true;
+            this.ActivoCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ActivoCheckBox.Location = new System.Drawing.Point(377, 15);
             this.ActivoCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ActivoCheckBox.Name = "ActivoCheckBox";
