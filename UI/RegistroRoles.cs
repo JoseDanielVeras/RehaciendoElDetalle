@@ -30,9 +30,10 @@ namespace RehaciendoElDetalle.UI
         private void Limpiar()
         {
             IdRolNumericUpDown.Value = 0;
-            FechaCreacionDateTimePicker.Value = DateTime.Now;
             DescripcionTextBox.Clear();
             RolesDataGridView.DataSource = null;
+            ActivoCheckBox.Checked = true;
+            EsAsignadoCheckBox.Checked = false;
         }
 
         private bool Validar()
@@ -53,7 +54,6 @@ namespace RehaciendoElDetalle.UI
             Roles roles = new Roles();
             roles.RolId = (int)IdRolNumericUpDown.Value;
             roles.Descripcion = DescripcionTextBox.Text;
-            roles.FechaCreacion = FechaCreacionDateTimePicker.Value;
             roles.RolesDetalle = this.rolesDetalles;
             LlenarGrid();
 

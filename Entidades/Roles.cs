@@ -12,15 +12,17 @@ namespace RehaciendoElDetalle.Entidades
         public int RolId { get; set; }
         public DateTime FechaCreacion { get; set; }
         public string Descripcion { get; set; }
+        public bool EsActivo { get; set; }
+
+        [ForeignKey("RolId")]
+        public virtual List<RolesDetalle> RolesDetalle { get; set; }
 
         public Roles()
         {
             RolId = 0;
             FechaCreacion = DateTime.Now;
+            EsActivo = true;
             RolesDetalle = new List<RolesDetalle>();
         }
-
-        [ForeignKey("RolId")]
-        public virtual List<RolesDetalle> RolesDetalle { get; set; }
     }
 }

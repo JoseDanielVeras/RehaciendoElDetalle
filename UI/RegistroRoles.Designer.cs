@@ -34,10 +34,8 @@ namespace RehaciendoElDetalle.UI
             this.PermisoIdComboBox = new System.Windows.Forms.ComboBox();
             this.PermisoIdLabel = new System.Windows.Forms.Label();
             this.DescripcionTextBox = new System.Windows.Forms.TextBox();
-            this.FechaCreacionDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.IdRolNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.DescripcionLabel = new System.Windows.Forms.Label();
-            this.FechaCreacionLabel = new System.Windows.Forms.Label();
             this.IdRolLabel = new System.Windows.Forms.Label();
             this.EsAsignadoCheckBox = new System.Windows.Forms.CheckBox();
             this.BuscarButton = new System.Windows.Forms.Button();
@@ -48,6 +46,7 @@ namespace RehaciendoElDetalle.UI
             this.RemoverButton = new System.Windows.Forms.Button();
             this.RolesDataGridView = new System.Windows.Forms.DataGridView();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ActivoCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.IdRolNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RolesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -68,7 +67,7 @@ namespace RehaciendoElDetalle.UI
             // 
             this.PermisoIdLabel.AutoSize = true;
             this.PermisoIdLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PermisoIdLabel.Location = new System.Drawing.Point(20, 147);
+            this.PermisoIdLabel.Location = new System.Drawing.Point(27, 148);
             this.PermisoIdLabel.Name = "PermisoIdLabel";
             this.PermisoIdLabel.Size = new System.Drawing.Size(80, 20);
             this.PermisoIdLabel.TabIndex = 37;
@@ -76,21 +75,14 @@ namespace RehaciendoElDetalle.UI
             // 
             // DescripcionTextBox
             // 
-            this.DescripcionTextBox.Location = new System.Drawing.Point(149, 103);
+            this.DescripcionTextBox.Location = new System.Drawing.Point(130, 50);
             this.DescripcionTextBox.Name = "DescripcionTextBox";
-            this.DescripcionTextBox.Size = new System.Drawing.Size(170, 23);
+            this.DescripcionTextBox.Size = new System.Drawing.Size(307, 23);
             this.DescripcionTextBox.TabIndex = 36;
-            // 
-            // FechaCreacionDateTimePicker
-            // 
-            this.FechaCreacionDateTimePicker.Location = new System.Drawing.Point(149, 57);
-            this.FechaCreacionDateTimePicker.Name = "FechaCreacionDateTimePicker";
-            this.FechaCreacionDateTimePicker.Size = new System.Drawing.Size(170, 23);
-            this.FechaCreacionDateTimePicker.TabIndex = 35;
             // 
             // IdRolNumericUpDown
             // 
-            this.IdRolNumericUpDown.Location = new System.Drawing.Point(149, 12);
+            this.IdRolNumericUpDown.Location = new System.Drawing.Point(130, 13);
             this.IdRolNumericUpDown.Name = "IdRolNumericUpDown";
             this.IdRolNumericUpDown.Size = new System.Drawing.Size(139, 23);
             this.IdRolNumericUpDown.TabIndex = 34;
@@ -99,27 +91,17 @@ namespace RehaciendoElDetalle.UI
             // 
             this.DescripcionLabel.AutoSize = true;
             this.DescripcionLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DescripcionLabel.Location = new System.Drawing.Point(20, 103);
+            this.DescripcionLabel.Location = new System.Drawing.Point(20, 53);
             this.DescripcionLabel.Name = "DescripcionLabel";
             this.DescripcionLabel.Size = new System.Drawing.Size(87, 20);
             this.DescripcionLabel.TabIndex = 33;
             this.DescripcionLabel.Text = "Descripción";
             // 
-            // FechaCreacionLabel
-            // 
-            this.FechaCreacionLabel.AutoSize = true;
-            this.FechaCreacionLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FechaCreacionLabel.Location = new System.Drawing.Point(20, 57);
-            this.FechaCreacionLabel.Name = "FechaCreacionLabel";
-            this.FechaCreacionLabel.Size = new System.Drawing.Size(109, 20);
-            this.FechaCreacionLabel.TabIndex = 32;
-            this.FechaCreacionLabel.Text = "Fecha Creación";
-            // 
             // IdRolLabel
             // 
             this.IdRolLabel.AutoSize = true;
             this.IdRolLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.IdRolLabel.Location = new System.Drawing.Point(20, 15);
+            this.IdRolLabel.Location = new System.Drawing.Point(20, 14);
             this.IdRolLabel.Name = "IdRolLabel";
             this.IdRolLabel.Size = new System.Drawing.Size(48, 20);
             this.IdRolLabel.TabIndex = 31;
@@ -139,10 +121,13 @@ namespace RehaciendoElDetalle.UI
             // BuscarButton
             // 
             this.BuscarButton.Image = ((System.Drawing.Image)(resources.GetObject("BuscarButton.Image")));
-            this.BuscarButton.Location = new System.Drawing.Point(294, 11);
+            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BuscarButton.Location = new System.Drawing.Point(289, 12);
             this.BuscarButton.Name = "BuscarButton";
-            this.BuscarButton.Size = new System.Drawing.Size(25, 25);
+            this.BuscarButton.Size = new System.Drawing.Size(67, 25);
             this.BuscarButton.TabIndex = 40;
+            this.BuscarButton.Text = "Buscar";
+            this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BuscarButton.UseVisualStyleBackColor = true;
             this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
@@ -217,18 +202,30 @@ namespace RehaciendoElDetalle.UI
             this.RolesDataGridView.Location = new System.Drawing.Point(20, 190);
             this.RolesDataGridView.Name = "RolesDataGridView";
             this.RolesDataGridView.RowTemplate.Height = 25;
-            this.RolesDataGridView.Size = new System.Drawing.Size(520, 170);
+            this.RolesDataGridView.Size = new System.Drawing.Size(417, 170);
             this.RolesDataGridView.TabIndex = 46;
             // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // ActivoCheckBox
+            // 
+            this.ActivoCheckBox.AutoSize = true;
+            this.ActivoCheckBox.Location = new System.Drawing.Point(377, 15);
+            this.ActivoCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ActivoCheckBox.Name = "ActivoCheckBox";
+            this.ActivoCheckBox.Size = new System.Drawing.Size(60, 19);
+            this.ActivoCheckBox.TabIndex = 47;
+            this.ActivoCheckBox.Text = "Activo";
+            this.ActivoCheckBox.UseVisualStyleBackColor = true;
+            // 
             // RegistroRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 502);
+            this.ClientSize = new System.Drawing.Size(455, 502);
+            this.Controls.Add(this.ActivoCheckBox);
             this.Controls.Add(this.RolesDataGridView);
             this.Controls.Add(this.RemoverButton);
             this.Controls.Add(this.AgregarButton);
@@ -240,10 +237,8 @@ namespace RehaciendoElDetalle.UI
             this.Controls.Add(this.PermisoIdComboBox);
             this.Controls.Add(this.PermisoIdLabel);
             this.Controls.Add(this.DescripcionTextBox);
-            this.Controls.Add(this.FechaCreacionDateTimePicker);
             this.Controls.Add(this.IdRolNumericUpDown);
             this.Controls.Add(this.DescripcionLabel);
-            this.Controls.Add(this.FechaCreacionLabel);
             this.Controls.Add(this.IdRolLabel);
             this.Name = "RegistroRoles";
             this.Text = "RegistroRoles";
@@ -261,10 +256,8 @@ namespace RehaciendoElDetalle.UI
         private System.Windows.Forms.ComboBox PermisoIdComboBox;
         private System.Windows.Forms.Label PermisoIdLabel;
         private System.Windows.Forms.TextBox DescripcionTextBox;
-        private System.Windows.Forms.DateTimePicker FechaCreacionDateTimePicker;
         private System.Windows.Forms.NumericUpDown IdRolNumericUpDown;
         private System.Windows.Forms.Label DescripcionLabel;
-        private System.Windows.Forms.Label FechaCreacionLabel;
         private System.Windows.Forms.Label IdRolLabel;
         private System.Windows.Forms.CheckBox EsAsignadoCheckBox;
         private System.Windows.Forms.Button BuscarButton;
@@ -275,5 +268,6 @@ namespace RehaciendoElDetalle.UI
         private System.Windows.Forms.Button RemoverButton;
         private System.Windows.Forms.DataGridView RolesDataGridView;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.CheckBox ActivoCheckBox;
     }
 }
