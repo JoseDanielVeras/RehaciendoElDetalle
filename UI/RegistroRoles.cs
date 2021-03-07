@@ -132,14 +132,16 @@ namespace RehaciendoElDetalle.UI
                 this.rolesDetalles = (List<RolesDetalle>)RolesDataGridView.DataSource;
 
             this.rolesDetalles.Add(
-                new RolesDetalle(
-                    id: 0,
-                    rolId: (int)IdRolNumericUpDown.Value,
-                    permisoId: Convert.ToInt32(PermisoIdComboBox.Text),
-                    esAsignado: EsAsignadoCheckBox.Checked)
-                );
+                new RolesDetalle() { 
+                    RolId = (int)IdRolNumericUpDown.Value,
+                    PermisoId = Convert.ToInt32(PermisoIdComboBox.Text),
+                    EsAsignado = EsAsignadoCheckBox.Checked
+                }
+            );
+
             LlenarGrid();
-            EsAsignadoCheckBox.Checked = false;
+            PermisoIdComboBox.Focus();
+            EsAsignadoCheckBox.Checked = true;
         }
 
         private void RemoverButton_Click(object sender, EventArgs e)

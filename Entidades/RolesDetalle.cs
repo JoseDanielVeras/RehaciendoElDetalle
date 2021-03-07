@@ -20,13 +20,5 @@ namespace RehaciendoElDetalle.Entidades
             PermisoId = 0;
             EsAsignado = true;
         }
-
-        public RolesDetalle(int id, int rolId, int permisoId, bool esAsignado)
-        {
-            RolDetalleId = id;
-            RolId = rolId;
-            PermisoId = permisoId;
-            EsAsignado = esAsignado;
-        }
     }
 }
