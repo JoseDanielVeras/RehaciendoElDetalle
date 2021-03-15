@@ -68,6 +68,49 @@ namespace RehaciendoElDetalle.UI
             LlenarGrid();
         }
 
+        private void BuscarButton_Click(object sender, EventArgs e)
+        {
+            Roles roles = new Roles();
+            int id = (int)IdRolNumericUpDown.Value;
+
+            Limpiar();
+
+            roles = RolesBLL.Buscar(id);
+
+            if (roles != null)
+                LlenaCampos(roles);
+            else
+                MessageBox.Show("Rol no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void AgregarButton_Click(object sender, EventArgs e)
+        {
+            if (RolesDataGridView.DataSource != null)
+                this.rolesDetalles = (List<RolesDetalle>)RolesDataGridView.DataSource;
+
+            this.rolesDetalles.Add(
+                new RolesDetalle()
+                {
+                    RolId = (int)IdRolNumericUpDown.Value,
+                    PermisoId = Convert.ToInt32(PermisoIdComboBox.Text),
+                    EsAsignado = EsAsignadoCheckBox.Checked
+                }
+            );
+
+            LlenarGrid();
+            PermisoIdComboBox.Focus();
+            EsAsignadoCheckBox.Checked = true;
+        }
+
+        private void RemoverButton_Click(object sender, EventArgs e)
+        {
+            if (RolesDataGridView.Rows.Count > 0 && RolesDataGridView.CurrentRow != null)
+            {
+                rolesDetalles.RemoveAt(RolesDataGridView.CurrentRow.Index);
+                LlenarGrid();
+            }
+        }
+
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -109,49 +152,7 @@ namespace RehaciendoElDetalle.UI
             }
             else
                 errorProvider.SetError(IdRolNumericUpDown, "El id no existe");
-        }
-
-        private void BuscarButton_Click(object sender, EventArgs e)
-        {
-            Roles roles = new Roles();
-            int id = (int)IdRolNumericUpDown.Value;
-
-            Limpiar();
-
-            roles = RolesBLL.Buscar(id);
-
-            if (roles != null)
-                LlenaCampos(roles);
-            else
-                MessageBox.Show("Rol no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void AgregarButton_Click(object sender, EventArgs e)
-        {
-            if (RolesDataGridView.DataSource != null)
-                this.rolesDetalles = (List<RolesDetalle>)RolesDataGridView.DataSource;
-
-            this.rolesDetalles.Add(
-                new RolesDetalle() { 
-                    RolId = (int)IdRolNumericUpDown.Value,
-                    PermisoId = Convert.ToInt32(PermisoIdComboBox.Text),
-                    EsAsignado = EsAsignadoCheckBox.Checked
-                }
-            );
-
-            LlenarGrid();
-            PermisoIdComboBox.Focus();
-            EsAsignadoCheckBox.Checked = true;
-        }
-
-        private void RemoverButton_Click(object sender, EventArgs e)
-        {
-            if(RolesDataGridView.Rows.Count > 0 && RolesDataGridView.CurrentRow != null)
-            {
-                rolesDetalles.RemoveAt(RolesDataGridView.CurrentRow.Index);
-                LlenarGrid();
-            }
-        }
+        }       
 
         private void RegistroRoles_Load(object sender, EventArgs e)
         {
