@@ -21,7 +21,7 @@ namespace RehaciendoElDetalle.Entidades
         {
             RolId = 0;
             FechaCreacion = DateTime.Now;
-            EsActivo = true;
+            EsActivo = false;
             RolesDetalle = new List<RolesDetalle>();
         }
     }

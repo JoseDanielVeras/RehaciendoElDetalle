@@ -1,4 +1,5 @@
 ﻿using RehaciendoElDetalle.UI;
+using RehaciendoElDetalle.UI.Consultas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +18,20 @@ namespace RehaciendoElDetalle
         {
             InitializeComponent();
             this.RolesToolStripMenuItem.Click += new EventHandler(this.RolesToolStripMenuItem_ItemClicked);
+
+
+            this.ConsultaRolesToolStripMenuItem.Click += new EventHandler(this.ConsultaRolesToolStripMenuItem_ItemClicked);
         }
 
         private void RolesToolStripMenuItem_ItemClicked(object sender, EventArgs e)
         {
             var Roles = new RegistroRoles();
+            Roles.Show();
+        }
+
+        private void ConsultaRolesToolStripMenuItem_ItemClicked(object sender, EventArgs e)
+        {
+            var Roles = new cRoles();
             Roles.Show();
         }
 

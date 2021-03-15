@@ -11,6 +11,7 @@ namespace RehaciendoElDetalle.DAL
         public DbSet<Permisos> Permisos { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<RolesDetalle> RolesDetalles { get; set; }
+        public IEnumerable<Usuarios> Usuarios { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

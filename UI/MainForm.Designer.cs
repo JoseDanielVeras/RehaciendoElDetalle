@@ -32,6 +32,8 @@ namespace RehaciendoElDetalle
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.RegistrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConsultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConsultaRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,7 +41,8 @@ namespace RehaciendoElDetalle
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.RegistrosToolStripMenuItem});
+            this.RegistrosToolStripMenuItem,
+            this.ConsultasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -59,6 +62,20 @@ namespace RehaciendoElDetalle
             this.RolesToolStripMenuItem.Name = "RolesToolStripMenuItem";
             this.RolesToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.RolesToolStripMenuItem.Text = "&Roles";
+            // 
+            // ConsultasToolStripMenuItem
+            // 
+            this.ConsultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ConsultaRolesToolStripMenuItem});
+            this.ConsultasToolStripMenuItem.Name = "ConsultasToolStripMenuItem";
+            this.ConsultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.ConsultasToolStripMenuItem.Text = "Consultas";
+            // 
+            // ConsultaRolesToolStripMenuItem
+            // 
+            this.ConsultaRolesToolStripMenuItem.Name = "ConsultaRolesToolStripMenuItem";
+            this.ConsultaRolesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ConsultaRolesToolStripMenuItem.Text = "Consulta Roles";
             // 
             // MainForm
             // 
@@ -80,6 +97,8 @@ namespace RehaciendoElDetalle
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem RegistrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RolesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ConsultasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ConsultaRolesToolStripMenuItem;
     }
 }
 
