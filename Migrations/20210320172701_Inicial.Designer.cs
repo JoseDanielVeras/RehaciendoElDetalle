@@ -9,7 +9,7 @@ using RehaciendoElDetalle.DAL;
 namespace RehaciendoElDetalle.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210301211008_Inicial")]
+    [Migration("20210320172701_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,6 +70,9 @@ namespace RehaciendoElDetalle.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("EsActivo")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("TEXT");
 
@@ -100,6 +103,38 @@ namespace RehaciendoElDetalle.Migrations
                     b.HasIndex("RolId");
 
                     b.ToTable("RolesDetalles");
+                });
+
+            modelBuilder.Entity("RehaciendoElDetalle.Entidades.Usuarios", b =>
+                {
+                    b.Property<int>("UsuarioId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Activo")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Alias")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Clave")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("FechaIngreso")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nombres")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("RolId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("UsuarioId");
+
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("RehaciendoElDetalle.Entidades.RolesDetalle", b =>

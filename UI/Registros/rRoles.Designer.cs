@@ -1,7 +1,7 @@
 ﻿
 namespace RehaciendoElDetalle.UI
 {
-    partial class RegistroRoles
+    partial class rRoles
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace RehaciendoElDetalle.UI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroRoles));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rRoles));
             this.PermisoIdComboBox = new System.Windows.Forms.ComboBox();
             this.PermisoIdLabel = new System.Windows.Forms.Label();
             this.DescripcionTextBox = new System.Windows.Forms.TextBox();

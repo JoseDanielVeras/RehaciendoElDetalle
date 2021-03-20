@@ -11,11 +11,11 @@ using RehaciendoElDetalle.Entidades;
 
 namespace RehaciendoElDetalle.UI
 {
-    public partial class RegistroRoles : Form
+    public partial class rRoles : Form
     {
         public List<RolesDetalle> rolesDetalles { get; set; }
 
-        public RegistroRoles()
+        public rRoles()
         {
             InitializeComponent();
             this.rolesDetalles = new List<RolesDetalle>();
@@ -158,7 +158,7 @@ namespace RehaciendoElDetalle.UI
         {
             PermisoIdComboBox.DataSource = PermisosBLL.GetPermisos();
             PermisoIdComboBox.DisplayMember = "PermisoId";
-            PermisoIdComboBox.ValueMember = "Descripcion";
+            PermisoIdComboBox.ValueMember = "PermisoId";
         }
 
         

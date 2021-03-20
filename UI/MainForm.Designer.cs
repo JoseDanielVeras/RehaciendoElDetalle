@@ -34,6 +34,8 @@ namespace RehaciendoElDetalle
             this.RolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ConsultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ConsultaRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConsultaUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +54,8 @@ namespace RehaciendoElDetalle
             // RegistrosToolStripMenuItem
             // 
             this.RegistrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.RolesToolStripMenuItem});
+            this.RolesToolStripMenuItem,
+            this.UsuariosToolStripMenuItem});
             this.RegistrosToolStripMenuItem.Name = "RegistrosToolStripMenuItem";
             this.RegistrosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.RegistrosToolStripMenuItem.Text = "&Registros";
@@ -60,13 +63,14 @@ namespace RehaciendoElDetalle
             // RolesToolStripMenuItem
             // 
             this.RolesToolStripMenuItem.Name = "RolesToolStripMenuItem";
-            this.RolesToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.RolesToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.RolesToolStripMenuItem.Text = "&Roles";
             // 
             // ConsultasToolStripMenuItem
             // 
             this.ConsultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ConsultaRolesToolStripMenuItem});
+            this.ConsultaRolesToolStripMenuItem,
+            this.ConsultaUsuariosToolStripMenuItem});
             this.ConsultasToolStripMenuItem.Name = "ConsultasToolStripMenuItem";
             this.ConsultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.ConsultasToolStripMenuItem.Text = "Consultas";
@@ -74,8 +78,20 @@ namespace RehaciendoElDetalle
             // ConsultaRolesToolStripMenuItem
             // 
             this.ConsultaRolesToolStripMenuItem.Name = "ConsultaRolesToolStripMenuItem";
-            this.ConsultaRolesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ConsultaRolesToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.ConsultaRolesToolStripMenuItem.Text = "Consulta Roles";
+            // 
+            // UsuariosToolStripMenuItem
+            // 
+            this.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem";
+            this.UsuariosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.UsuariosToolStripMenuItem.Text = "&Usuarios";
+            // 
+            // ConsultaUsuariosToolStripMenuItem
+            // 
+            this.ConsultaUsuariosToolStripMenuItem.Name = "ConsultaUsuariosToolStripMenuItem";
+            this.ConsultaUsuariosToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.ConsultaUsuariosToolStripMenuItem.Text = "Consulta Usuarios";
             // 
             // MainForm
             // 
@@ -99,6 +115,8 @@ namespace RehaciendoElDetalle
         private System.Windows.Forms.ToolStripMenuItem RolesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ConsultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ConsultaRolesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem UsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ConsultaUsuariosToolStripMenuItem;
     }
 }
 

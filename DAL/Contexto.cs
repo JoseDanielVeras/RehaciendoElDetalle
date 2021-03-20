@@ -11,11 +11,11 @@ namespace RehaciendoElDetalle.DAL
         public DbSet<Permisos> Permisos { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<RolesDetalle> RolesDetalles { get; set; }
-        public IEnumerable<Usuarios> Usuarios { get; internal set; }
+        public DbSet<Usuarios> Usuarios { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = GestionRoles.Db");
+            optionsBuilder.UseSqlite(@"Data Source = DATA/GestionUsuarios.Db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

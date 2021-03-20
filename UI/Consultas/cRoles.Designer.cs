@@ -252,7 +252,7 @@ namespace RehaciendoElDetalle.UI.Consultas
             this.Controls.Add(this.EsActivoGroupBox);
             this.Controls.Add(this.FiltroFechaCheckBox);
             this.Name = "cRoles";
-            this.Text = "cRoles";
+            this.Text = "Consulta Roles";
             this.Load += new System.EventHandler(this.cRoles_Load);
             this.EsActivoGroupBox.ResumeLayout(false);
             this.EsActivoGroupBox.PerformLayout();

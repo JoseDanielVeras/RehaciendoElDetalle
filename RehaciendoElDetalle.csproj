@@ -31,9 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="GestionRoles.Db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Folder Include="DATA\" />
+    <Folder Include="UI\Reportes\" />
   </ItemGroup>
 
 </Project>
