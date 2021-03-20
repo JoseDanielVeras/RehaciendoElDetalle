@@ -35,4 +35,10 @@
     <Folder Include="UI\Reportes\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="DATA\GestionUsuarios.Db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
