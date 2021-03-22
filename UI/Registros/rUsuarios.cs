@@ -100,11 +100,6 @@ namespace RehaciendoElDetalle.UI.Registros
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            Limpiar();
-        }
-
-        private void NuevoButton_Click(object sender, EventArgs e)
-        {
             int id = (int)UsuarioIdNumericUpDown.Value;
 
             Limpiar();
@@ -115,6 +110,11 @@ namespace RehaciendoElDetalle.UI.Registros
                 LlenaCampos(usuarios);
             else
                 MessageBox.Show("No Encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void NuevoButton_Click(object sender, EventArgs e)
+        {
+            Limpiar(); 
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
